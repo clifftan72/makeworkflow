@@ -1,0 +1,304 @@
+@import "tailwindcss";
+
+@theme {
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Color Palette — Institutional */
+  --color-ink: #0f0f0f;
+  --color-ink-soft: #1a1a1a;
+  --color-ink-muted: #3d3d3d;
+  --color-ink-faint: #6b6b6b;
+
+  --color-paper: #fafaf8;
+  --color-paper-warm: #f5f4f0;
+  --color-paper-mid: #ebebeb;
+  --color-paper-border: #d4d4d0;
+
+  --color-accent: #1a3a2a;
+  --color-accent-mid: #2d5c42;
+  --color-accent-light: #4a8c65;
+  --color-accent-pale: #e8f2ec;
+
+  --color-signal: #c8a84b;
+  --color-signal-dark: #96780a;
+  --color-signal-pale: #f7f1e0;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+
+  /* Spacing scale */
+  --spacing-section: 5rem;
+  --spacing-section-lg: 8rem;
+
+  /* Border */
+  --radius: 0px;
+
+  /* Shadows — subtle lift only */
+  --shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.06);
+  --shadow-lifted: 0 4px 12px 0 rgb(0 0 0 / 0.10);
+}
+
+/* ── Base Reset ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* ── Typography ── */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  margin: 0;
+}
+
+h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; letter-spacing: -0.03em; }
+h2 { font-size: clamp(1.5rem, 3.5vw, 2.5rem); }
+h3 { font-size: clamp(1.15rem, 2.5vw, 1.5rem); }
+h4 { font-size: 1.1rem; }
+
+p {
+  margin: 0;
+  color: var(--color-ink-muted);
+  line-height: 1.75;
+}
+
+a {
+  color: var(--color-accent-mid);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+a:hover { color: var(--color-accent); }
+
+code, pre {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+}
+
+/* ── Layout Utilities ── */
+.container-site {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-narrow {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.container-wide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ── Section Spacing ── */
+.section {
+  padding: 5rem 0;
+}
+.section-lg {
+  padding: 8rem 0;
+}
+.section-sm {
+  padding: 3rem 0;
+}
+
+/* ── Dividers ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-paper-border);
+  margin: 0;
+}
+
+/* ── Button System ── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+.btn-primary:hover {
+  background-color: var(--color-ink-soft);
+  color: var(--color-paper);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-ink);
+  border: 1px solid var(--color-ink);
+}
+.btn-secondary:hover {
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+}
+
+.btn-outline-light {
+  background-color: transparent;
+  color: var(--color-paper);
+  border: 1px solid rgba(250,250,248,0.4);
+}
+.btn-outline-light:hover {
+  background-color: rgba(250,250,248,0.1);
+  color: var(--color-paper);
+}
+
+.btn-accent {
+  background-color: var(--color-accent);
+  color: var(--color-paper);
+}
+.btn-accent:hover {
+  background-color: var(--color-accent-mid);
+  color: var(--color-paper);
+}
+
+/* ── Card System ── */
+.card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-paper-border);
+  padding: 2rem;
+  transition: box-shadow 0.2s ease;
+}
+.card:hover {
+  box-shadow: var(--shadow-lifted);
+}
+
+.card-dark {
+  background-color: var(--color-ink-soft);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 2rem;
+  color: var(--color-paper);
+}
+
+.card-accent {
+  background-color: var(--color-accent-pale);
+  border: 1px solid rgba(26,58,42,0.15);
+  padding: 2rem;
+}
+
+/* ── Tag / Badge ── */
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  background-color: var(--color-paper-mid);
+  color: var(--color-ink-muted);
+  border: 1px solid var(--color-paper-border);
+}
+
+.tag-accent {
+  background-color: var(--color-accent-pale);
+  color: var(--color-accent);
+  border-color: rgba(26,58,42,0.2);
+}
+
+.tag-signal {
+  background-color: var(--color-signal-pale);
+  color: var(--color-signal-dark);
+  border-color: rgba(200,168,75,0.3);
+}
+
+/* ── Principle Line ── */
+.principle-line {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-faint);
+  text-transform: uppercase;
+}
+
+/* ── Move Number ── */
+.move-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--color-ink-faint);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ── Prose Utility ── */
+.prose-site p {
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+  color: var(--color-ink-muted);
+  line-height: 1.75;
+}
+.prose-site p:last-child { margin-bottom: 0; }
+
+/* ── Grid patterns ── */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .grid-3, .grid-2 { grid-template-columns: 1fr; }
+  .section { padding: 3.5rem 0; }
+  .section-lg { padding: 5rem 0; }
+}
+
+/* ── Transitions ── */
+.transition-base {
+  transition: all 0.15s ease;
+}
+
+/* ── Focus ── */
+:focus-visible {
+  outline: 2px solid var(--color-accent-mid);
+  outline-offset: 2px;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-paper-mid); }
+::-webkit-scrollbar-thumb { background: var(--color-paper-border); }
+::-webkit-scrollbar-thumb:hover { background: var(--color-ink-faint); }
