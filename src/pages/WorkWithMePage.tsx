@@ -143,7 +143,7 @@ export default function WorkWithMePage() {
                 Visit Harvest Point Consulting ↗
               </a>
               <a
-                href="https://www.harvestpointconsulting.com/contact"
+                href="https://calendar.app.google/nm2skoXfuhwzAgALA"
                 target="_blank"
                 rel="noopener noreferrer"
                 id="work-with-me-book-call"
