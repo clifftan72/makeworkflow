@@ -1,6 +1,12 @@
 import { Link } from 'react-router-dom'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function AboutPage() {
+  usePageMeta({
+    title: 'About Make Work Flow™',
+    description: 'Make Work Flow™ is a methodology for workflow-first AI and automation, created by Clifford Tan. The commercial practice is Harvest Point Consulting.',
+    canonicalPath: '/about',
+  })
   return (
     <>
       {/* ── Page Hero ── */}

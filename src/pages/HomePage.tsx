@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const principles = [
   {
@@ -49,6 +50,11 @@ const fieldNotePreviews = [
 ]
 
 export default function HomePage() {
+  usePageMeta({
+    title: 'Make Work Flow™ — Workflow-First Methodology for AI and Automation',
+    description: 'A workflow-first way to think about AI, automation, and operational clarity. Before automation, understand the work. Before agents, design the workflow.',
+    canonicalPath: '/',
+  })
   return (
     <>
       {/* ── Hero ── */}

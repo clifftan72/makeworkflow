@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const categories = [
   { id: 'workflow-friction', label: 'Workflow friction' },
@@ -56,6 +57,11 @@ const fieldNotes = [
 ]
 
 export default function FieldNotesPage() {
+  usePageMeta({
+    title: 'Field Notes — Observations on Workflow and Operations',
+    description: 'Short, practical notes on how work breaks in real organisations. Workflow friction, AI and agents, handoffs, human review, SME operations — grounded in observation.',
+    canonicalPath: '/field-notes',
+  })
   return (
     <>
       {/* ── Page Hero ── */}

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const moves = [
   {
@@ -39,6 +40,11 @@ const moves = [
 ]
 
 export default function MethodPage() {
+  usePageMeta({
+    title: 'The Five Moves — Workflow-First Method',
+    description: 'The Five Moves is a framework for observing, mapping, and designing workflow before AI or automation is introduced. Before the tool, the workflow.',
+    canonicalPath: '/method',
+  })
   return (
     <>
       {/* ── Page Hero ── */}

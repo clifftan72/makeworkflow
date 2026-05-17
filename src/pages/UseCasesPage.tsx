@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const useCases = [
   {
@@ -52,6 +53,11 @@ const useCases = [
 ]
 
 export default function UseCasesPage() {
+  usePageMeta({
+    title: 'Workflow Use Cases — Common Patterns Before Automation',
+    description: 'Workflow patterns across SME operations — invoice chasing, customer triage, meeting prep, reporting, and more. How work breaks and what thinking is needed before tools.',
+    canonicalPath: '/use-cases',
+  })
   return (
     <>
       {/* ── Page Hero ── */}

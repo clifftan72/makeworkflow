@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { usePageMeta } from '../hooks/usePageMeta'
 
 const resources = [
   {
@@ -6,7 +7,7 @@ const resources = [
     type: 'Checklist',
     title: 'Ten questions before you automate',
     description: 'A short checklist to run before introducing any automation or AI tool into an existing workflow. Covers the most common failure points.',
-    status: 'available',
+    status: 'coming-soon',
     format: 'PDF — 1 page',
   },
   {
@@ -14,7 +15,7 @@ const resources = [
     type: 'Canvas',
     title: 'Workflow mapping canvas',
     description: 'A one-page template for sketching how work moves through people, tools, decisions, and handoffs. Intended to be used in a conversation, not completed alone.',
-    status: 'available',
+    status: 'coming-soon',
     format: 'PDF — 1 page',
   },
   {
@@ -22,7 +23,7 @@ const resources = [
     type: 'Reflection prompt',
     title: 'Friction finder: five questions to ask your team',
     description: 'Five questions to surface where a workflow is breaking before any redesign or automation conversation begins.',
-    status: 'available',
+    status: 'coming-soon',
     format: 'PDF — 1 page',
   },
   {
@@ -44,6 +45,11 @@ const resources = [
 ]
 
 export default function ResourcesPage() {
+  usePageMeta({
+    title: 'Resources — Simple Tools for Workflow Thinking',
+    description: 'Checklists, canvases, and reflection prompts for thinking about workflow before automation. Public resources kept deliberately simple. Implementation support via Harvest Point Consulting.',
+    canonicalPath: '/resources',
+  })
   return (
     <>
       {/* ── Page Hero ── */}
@@ -143,29 +149,18 @@ export default function ResourcesPage() {
                 </div>
 
                 <div style={{ paddingTop: '0.25rem' }}>
-                  {resource.status === 'available' ? (
-                    <button
-                      id={`download-${resource.id}`}
-                      className="btn btn-secondary"
-                      style={{ fontSize: '0.8rem', padding: '0.6rem 1.1rem', whiteSpace: 'nowrap' }}
-                      onClick={() => {
-                        // Download form will be wired when backend/email capture is available
-                        alert('This resource will be available for download shortly. Check back soon or contact Harvest Point Consulting.')
-                      }}
-                    >
-                      Download
-                    </button>
-                  ) : (
-                    <span className="btn" style={{
-                      fontSize: '0.8rem',
-                      padding: '0.6rem 1.1rem',
-                      backgroundColor: 'var(--color-paper-mid)',
-                      color: 'var(--color-ink-faint)',
-                      cursor: 'default',
-                    }}>
-                      Coming soon
-                    </span>
-                  )}
+                  <span className="btn" style={{
+                    fontSize: '0.8rem',
+                    padding: '0.6rem 1.1rem',
+                    backgroundColor: 'var(--color-paper-mid)',
+                    color: 'var(--color-ink-faint)',
+                    cursor: 'default',
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    whiteSpace: 'nowrap',
+                  }}>
+                    Coming soon
+                  </span>
                 </div>
               </div>
             ))}
