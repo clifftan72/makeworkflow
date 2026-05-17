@@ -36,20 +36,20 @@ Harvest Point Consulting is the consulting practice that helps organisations app
 
 ## Field Notes
 
-- https://www.makeworkflow.dev/field-notes/handoff-breaks
-  Why the handoff is usually where work breaks. Explains how information asymmetry and unclear ownership at transfer points cause most workflow failures.
+- https://www.makeworkflow.dev/field-notes/why-handoffs-break
+  Why the handoff is usually where work breaks. Work rarely breaks because one person forgot to do their job. More often it breaks when it moves from one person to another. The handoff is where responsibility, context, information, timing, and expectation all need to move together — and usually do not.
 
-- https://www.makeworkflow.dev/field-notes/task-vs-decision
-  The difference between automating a task and automating a decision. Tasks have defined inputs and outputs. Decisions require context, judgement, and accountability.
+- https://www.makeworkflow.dev/field-notes/task-vs-decision-automation
+  The difference between automating a task and automating a decision. A task has a defined input, rule, and output. A decision requires context, judgement, and accountability. Confusing the two is how automation becomes dangerous. AI can prepare a decision. It should not make one.
 
-- https://www.makeworkflow.dev/field-notes/human-in-loop
-  When to keep a human in the loop, and when automation earns trust. Human review is not always valuable — understanding what it adds is the key question.
+- https://www.makeworkflow.dev/field-notes/human-review-bottleneck
+  When human review becomes the bottleneck. Human review sounds responsible but can become a dependency. When everything waits for one person, that is not governance — it is a workflow design problem. The human role must be designed, not assumed.
 
 - https://www.makeworkflow.dev/field-notes/tool-sprawl
-  More tools, more friction. The paradox of the modern SME stack — each new tool creates a new handoff.
+  More tools, more friction. Each new tool creates a new handoff point. Workflow clarity is often a tool problem in disguise. Before evaluating another tool, map the workflow the tool is supposed to support.
 
 - https://www.makeworkflow.dev/field-notes/workflow-memory
-  The hidden cost of workflows that live in someone's head. When a process depends on one person's knowledge, it works until that person is absent.
+  The hidden cost of workflows that live in someone's head. When a workflow depends on one person's knowledge, it works until that person is absent, busy, or gone. Making the workflow explicit is a design problem, not a documentation problem.
 
 ## The Five Moves
 
@@ -79,6 +79,7 @@ The site is intended to be read by operators, managers, and business owners who 
 - Human decision protected: the principle that automation should support, not replace, human judgement on decisions requiring context and accountability
 - Friction: points in a workflow where information disappears, decisions stall, or effort repeats unnecessarily
 - Handoff: the point where responsibility for a task, decision, or piece of information transfers from one person, team, or system to another
+- Dependency: when a workflow relies on one person's presence, approval, or knowledge to function — a structural risk, not a people problem
 
 ## Commercial relationship
 

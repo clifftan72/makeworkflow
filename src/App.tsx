@@ -8,7 +8,11 @@ import ResourcesPage from './pages/ResourcesPage'
 import WorkWithMePage from './pages/WorkWithMePage'
 import AboutPage from './pages/AboutPage'
 import NotFoundPage from './pages/NotFoundPage'
-// Field note articles
+// Canonical field notes (user-authored)
+import WhyHandoffsBreak from './pages/field-notes/WhyHandoffsBreak'
+import TaskVsDecisionAutomation from './pages/field-notes/TaskVsDecisionAutomation'
+import HumanReviewBottleneck from './pages/field-notes/HumanReviewBottleneck'
+// Additional field notes
 import HandoffBreaks from './pages/field-notes/HandoffBreaks'
 import TaskVsDecision from './pages/field-notes/TaskVsDecision'
 import HumanInLoop from './pages/field-notes/HumanInLoop'
@@ -24,6 +28,11 @@ export default function App() {
           <Route path="method" element={<MethodPage />} />
           <Route path="use-cases" element={<UseCasesPage />} />
           <Route path="field-notes" element={<FieldNotesPage />} />
+          {/* Canonical field notes */}
+          <Route path="field-notes/why-handoffs-break" element={<WhyHandoffsBreak />} />
+          <Route path="field-notes/task-vs-decision-automation" element={<TaskVsDecisionAutomation />} />
+          <Route path="field-notes/human-review-bottleneck" element={<HumanReviewBottleneck />} />
+          {/* Additional field notes */}
           <Route path="field-notes/handoff-breaks" element={<HandoffBreaks />} />
           <Route path="field-notes/task-vs-decision" element={<TaskVsDecision />} />
           <Route path="field-notes/human-in-loop" element={<HumanInLoop />} />

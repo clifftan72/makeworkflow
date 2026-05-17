@@ -31,21 +31,27 @@ const useCasePreviews = [
 const fieldNotePreviews = [
   {
     id: 'fn1',
-    tag: 'Workflow friction',
+    slug: 'why-handoffs-break',
+    tag: 'Handoffs',
     title: 'Why the handoff is usually where work breaks',
-    status: 'coming-soon',
+    excerpt: 'Most workflow failures happen when responsibility moves from one person to another.',
+    status: 'published',
   },
   {
     id: 'fn2',
+    slug: 'task-vs-decision-automation',
     tag: 'AI and agents',
     title: 'The difference between automating a task and automating a decision',
-    status: 'coming-soon',
+    excerpt: 'Not everything should be automated. A task can often be supported by automation. A decision needs context, judgement, and accountability.',
+    status: 'published',
   },
   {
     id: 'fn3',
+    slug: 'human-review-bottleneck',
     tag: 'Human review',
-    title: 'When to keep a human in the loop, and when automation earns trust',
-    status: 'coming-soon',
+    title: 'When human review becomes the bottleneck',
+    excerpt: 'Human review is not always governance. Sometimes it is just a bottleneck. The question is what the human is actually adding.',
+    status: 'published',
   },
 ]
 
@@ -269,38 +275,48 @@ export default function HomePage() {
 
           <div className="grid-3" style={{ marginBottom: '2.5rem' }}>
             {fieldNotePreviews.map(fn => (
-              <div
+              <Link
                 key={fn.id}
+                to={`/field-notes/${fn.slug}`}
                 id={`field-note-preview-${fn.id}`}
                 style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: '0.75rem',
                   backgroundColor: 'var(--color-white)',
                   border: '1px solid var(--color-paper-border)',
                   padding: '2rem',
-                  position: 'relative',
+                  textDecoration: 'none',
+                  transition: 'box-shadow 0.2s ease, border-color 0.2s ease',
+                }}
+                onMouseEnter={e => {
+                  (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 12px rgba(0,0,0,0.08)'
+                  ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--color-ink-muted)'
+                }}
+                onMouseLeave={e => {
+                  (e.currentTarget as HTMLElement).style.boxShadow = 'none'
+                  ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--color-paper-border)'
                 }}
               >
-                {fn.status === 'coming-soon' && (
-                  <div style={{
-                    position: 'absolute',
-                    top: '1rem',
-                    right: '1rem',
-                  }}>
-                    <span className="tag" style={{
-                      fontSize: '0.65rem',
-                      letterSpacing: '0.06em',
-                      color: 'var(--color-ink-faint)',
-                    }}>
-                      Coming soon
-                    </span>
-                  </div>
-                )}
-                <span className="tag tag-accent" style={{ marginBottom: '1rem', display: 'inline-block' }}>
+                <span className="tag tag-accent" style={{ display: 'inline-block', alignSelf: 'flex-start' }}>
                   {fn.tag}
                 </span>
-                <h4 style={{ fontSize: '1rem', fontWeight: 500, lineHeight: 1.45, color: 'var(--color-ink-muted)' }}>
+                <h3 style={{ fontSize: '1rem', fontWeight: 500, lineHeight: 1.45, color: 'var(--color-ink)', margin: 0 }}>
                   {fn.title}
-                </h4>
-              </div>
+                </h3>
+                <p style={{ fontSize: '0.85rem', lineHeight: 1.65, color: 'var(--color-ink-faint)', margin: 0, flex: 1 }}>
+                  {fn.excerpt}
+                </p>
+                <span style={{
+                  fontFamily: 'var(--font-mono)',
+                  fontSize: '0.72rem',
+                  letterSpacing: '0.04em',
+                  color: 'var(--color-accent-mid)',
+                  textTransform: 'uppercase',
+                }}>
+                  Read →
+                </span>
+              </Link>
             ))}
           </div>
 
