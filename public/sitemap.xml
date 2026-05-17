@@ -21,18 +21,43 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.makeworkflow.dev/resources</loc>
+    <loc>https://www.makeworkflow.dev/field-notes/handoff-breaks</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.makeworkflow.dev/field-notes/task-vs-decision</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.makeworkflow.dev/field-notes/human-in-loop</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.makeworkflow.dev/field-notes/tool-sprawl</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.makeworkflow.dev/field-notes/workflow-memory</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.makeworkflow.dev/resources</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.makeworkflow.dev/work-with-me</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.makeworkflow.dev/about</loc>
     <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.5</priority>
   </url>
 </urlset>

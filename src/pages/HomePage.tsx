@@ -51,8 +51,8 @@ const fieldNotePreviews = [
 
 export default function HomePage() {
   usePageMeta({
-    title: 'Make Work Flow™ — Workflow-First Methodology for AI and Automation',
-    description: 'A workflow-first way to think about AI, automation, and operational clarity. Before automation, understand the work. Before agents, design the workflow.',
+    title: 'Make Work Flow™ | Workflow-first thinking for AI and automation',
+    description: 'A workflow-first way to think about AI, automation, and operational clarity. Before automation, understand the work.',
     canonicalPath: '/',
   })
   return (

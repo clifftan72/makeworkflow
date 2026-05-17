@@ -46,8 +46,8 @@ const resources = [
 
 export default function ResourcesPage() {
   usePageMeta({
-    title: 'Resources — Simple Tools for Workflow Thinking',
-    description: 'Checklists, canvases, and reflection prompts for thinking about workflow before automation. Public resources kept deliberately simple. Implementation support via Harvest Point Consulting.',
+    title: 'Workflow Resources | Make Work Flow™',
+    description: 'Lightweight checklists, prompts, and resources for thinking clearly about workflow before automation.',
     canonicalPath: '/resources',
   })
   return (

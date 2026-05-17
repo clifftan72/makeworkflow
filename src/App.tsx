@@ -8,6 +8,12 @@ import ResourcesPage from './pages/ResourcesPage'
 import WorkWithMePage from './pages/WorkWithMePage'
 import AboutPage from './pages/AboutPage'
 import NotFoundPage from './pages/NotFoundPage'
+// Field note articles
+import HandoffBreaks from './pages/field-notes/HandoffBreaks'
+import TaskVsDecision from './pages/field-notes/TaskVsDecision'
+import HumanInLoop from './pages/field-notes/HumanInLoop'
+import ToolSprawl from './pages/field-notes/ToolSprawl'
+import WorkflowMemory from './pages/field-notes/WorkflowMemory'
 
 export default function App() {
   return (
@@ -18,6 +24,11 @@ export default function App() {
           <Route path="method" element={<MethodPage />} />
           <Route path="use-cases" element={<UseCasesPage />} />
           <Route path="field-notes" element={<FieldNotesPage />} />
+          <Route path="field-notes/handoff-breaks" element={<HandoffBreaks />} />
+          <Route path="field-notes/task-vs-decision" element={<TaskVsDecision />} />
+          <Route path="field-notes/human-in-loop" element={<HumanInLoop />} />
+          <Route path="field-notes/tool-sprawl" element={<ToolSprawl />} />
+          <Route path="field-notes/workflow-memory" element={<WorkflowMemory />} />
           <Route path="resources" element={<ResourcesPage />} />
           <Route path="work-with-me" element={<WorkWithMePage />} />
           <Route path="about" element={<AboutPage />} />

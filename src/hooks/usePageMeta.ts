@@ -3,42 +3,80 @@ import { useEffect } from 'react'
 interface PageMetaOptions {
   title: string
   description: string
-  canonicalPath?: string
+  canonicalPath: string
+  schemaType?: 'WebPage' | 'Article'
+  articleDate?: string
 }
 
-const SITE_NAME = 'Make Work Flow™'
-const BASE_URL = 'https://www.makeworkflow.dev'
+export const BASE_URL = 'https://www.makeworkflow.dev'
 
-export function usePageMeta({ title, description, canonicalPath }: PageMetaOptions) {
+export function usePageMeta({
+  title,
+  description,
+  canonicalPath,
+  schemaType = 'WebPage',
+  articleDate,
+}: PageMetaOptions) {
   useEffect(() => {
-    // Title
-    document.title = `${title} — ${SITE_NAME}`
+    const fullUrl = `${BASE_URL}${canonicalPath}`
 
-    // Description
-    let metaDesc = document.querySelector('meta[name="description"]')
+    // ── Title ──
+    document.title = title
+
+    // ── Meta description ──
+    const metaDesc = document.querySelector('meta[name="description"]')
     if (metaDesc) metaDesc.setAttribute('content', description)
 
-    // OG title
-    let ogTitle = document.querySelector('meta[property="og:title"]')
-    if (ogTitle) ogTitle.setAttribute('content', `${title} — ${SITE_NAME}`)
+    // ── OG tags ──
+    const ogTitle = document.querySelector('meta[property="og:title"]')
+    if (ogTitle) ogTitle.setAttribute('content', title)
 
-    // OG description
-    let ogDesc = document.querySelector('meta[property="og:description"]')
+    const ogDesc = document.querySelector('meta[property="og:description"]')
     if (ogDesc) ogDesc.setAttribute('content', description)
 
-    // OG url / canonical
-    if (canonicalPath !== undefined) {
-      let ogUrl = document.querySelector('meta[property="og:url"]')
-      if (ogUrl) ogUrl.setAttribute('content', `${BASE_URL}${canonicalPath}`)
+    const ogUrl = document.querySelector('meta[property="og:url"]')
+    if (ogUrl) ogUrl.setAttribute('content', fullUrl)
 
-      // Canonical link tag
-      let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
-      if (!canonical) {
-        canonical = document.createElement('link')
-        canonical.rel = 'canonical'
-        document.head.appendChild(canonical)
-      }
-      canonical.href = `${BASE_URL}${canonicalPath}`
+    // ── Canonical ──
+    let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null
+    if (!canonical) {
+      canonical = document.createElement('link')
+      canonical.rel = 'canonical'
+      document.head.appendChild(canonical)
     }
-  }, [title, description, canonicalPath])
+    canonical.href = fullUrl
+
+    // ── WebPage / Article JSON-LD (per route) ──
+    const schemaId = 'page-schema-ld'
+    let schemaScript = document.getElementById(schemaId) as HTMLScriptElement | null
+    if (!schemaScript) {
+      schemaScript = document.createElement('script')
+      schemaScript.id = schemaId
+      schemaScript.type = 'application/ld+json'
+      document.head.appendChild(schemaScript)
+    }
+
+    const schemaData: Record<string, unknown> = {
+      '@context': 'https://schema.org',
+      '@type': schemaType,
+      '@id': fullUrl,
+      'name': title,
+      'description': description,
+      'url': fullUrl,
+      'isPartOf': { '@id': `${BASE_URL}/#website` },
+    }
+
+    if (schemaType === 'Article' && articleDate) {
+      schemaData['datePublished'] = articleDate
+      schemaData['author'] = {
+        '@type': 'Person',
+        'name': 'Clifford Tan',
+      }
+      schemaData['publisher'] = {
+        '@id': `${BASE_URL}/#organization`,
+      }
+    }
+
+    schemaScript.textContent = JSON.stringify(schemaData)
+  }, [title, description, canonicalPath, schemaType, articleDate])
 }

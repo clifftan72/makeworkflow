@@ -14,52 +14,64 @@ const categories = [
 const fieldNotes = [
   {
     id: 'fn-handoff-breaks',
+    slug: 'handoff-breaks',
     tag: 'Handoffs',
-    title: 'Why the handoff is usually where work breaks',
-    excerpt: 'Most workflow failures are not caused by bad tools or bad people. They happen at the point where responsibility transfers — and nobody has made that transfer explicit.',
-    status: 'coming-soon',
+    title: 'Why the Handoff is Usually Where Work Breaks',
+    excerpt: 'Most workflow failures do not happen mid-task. They happen at the point where responsibility transfers — and nobody has made that transfer explicit.',
+    status: 'published',
+    date: 'May 2025',
   },
   {
     id: 'fn-automating-decisions',
+    slug: 'task-vs-decision',
     tag: 'AI and agents',
-    title: 'The difference between automating a task and automating a decision',
-    excerpt: 'A task has a clear input and output. A decision requires context, judgement, and accountability. Confusing the two is how automation causes harm.',
-    status: 'coming-soon',
+    title: 'The Difference Between Automating a Task and Automating a Decision',
+    excerpt: 'Tasks have a defined input and output. Decisions require context, judgement, and accountability. Confusing the two is how automation causes harm.',
+    status: 'published',
+    date: 'May 2025',
   },
   {
     id: 'fn-human-in-loop',
+    slug: 'human-in-loop',
     tag: 'Human review',
-    title: 'When to keep a human in the loop, and when automation earns trust',
-    excerpt: 'Human review is not always valuable. Sometimes it is a bottleneck dressed as governance. Understanding the difference requires knowing what the human is actually adding.',
-    status: 'coming-soon',
+    title: 'When to Keep a Human in the Loop, and When Automation Earns Trust',
+    excerpt: 'Human review is not always valuable. Sometimes it is a bottleneck dressed as governance. Understanding what the human actually adds is the right question.',
+    status: 'published',
+    date: 'May 2025',
   },
   {
     id: 'fn-tool-sprawl',
+    slug: 'tool-sprawl',
     tag: 'Tool sprawl',
-    title: 'More tools, more friction: the paradox of the modern SME stack',
+    title: 'More Tools, More Friction: The Paradox of the Modern SME Stack',
     excerpt: 'The average small business uses more software than it can integrate. Each new tool creates a new handoff. Workflow clarity is often a tool problem in disguise.',
-    status: 'coming-soon',
+    status: 'published',
+    date: 'May 2025',
   },
   {
     id: 'fn-memory-workflow',
+    slug: 'workflow-memory',
     tag: 'Workflow friction',
-    title: 'The hidden cost of workflows that live in someone\'s head',
-    excerpt: 'When a workflow depends on one person\'s knowledge, it works until that person is absent, busy, or gone. Externalising that knowledge is not a technology problem.',
-    status: 'coming-soon',
+    title: "The Hidden Cost of Workflows That Live in Someone's Head",
+    excerpt: "When a workflow depends on one person's knowledge, it works until that person is absent, busy, or gone. Externalising that knowledge is not a technology problem.",
+    status: 'published',
+    date: 'May 2025',
   },
   {
     id: 'fn-decision-bottleneck',
+    slug: null,
     tag: 'Decision bottlenecks',
-    title: 'When the approval is the workflow',
+    title: 'When the Approval is the Workflow',
     excerpt: 'In many small businesses, a single person is the decision point for almost everything. This is not a workflow — it is a dependency. Automation cannot solve it.',
     status: 'coming-soon',
+    date: null,
   },
 ]
 
 export default function FieldNotesPage() {
   usePageMeta({
-    title: 'Field Notes — Observations on Workflow and Operations',
-    description: 'Short, practical notes on how work breaks in real organisations. Workflow friction, AI and agents, handoffs, human review, SME operations — grounded in observation.',
+    title: 'Field Notes | Make Work Flow™',
+    description: 'Short observations on workflow friction, handoffs, AI agents, human review, and operational clarity.',
     canonicalPath: '/field-notes',
   })
   return (
@@ -122,79 +134,117 @@ export default function FieldNotesPage() {
         </div>
       </section>
 
-      {/* ── Coming Soon Banner ── */}
-      <section style={{
-        backgroundColor: 'var(--color-accent-pale)',
-        borderBottom: '1px solid rgba(26,58,42,0.12)',
-        padding: '1.25rem 0',
-      }}>
-        <div className="container-site">
-          <p style={{
-            fontFamily: 'var(--font-mono)',
-            fontSize: '0.8rem',
-            color: 'var(--color-accent)',
-            letterSpacing: '0.02em',
-          }}>
-            Field Notes are being prepared. The titles and excerpts below reflect the
-            planned content. Full notes will be published progressively.
-          </p>
-        </div>
-      </section>
-
       {/* ── Notes Grid ── */}
       <section id="field-notes-list" className="section-lg" style={{ backgroundColor: 'var(--color-paper)' }}>
         <div className="container-site">
           <div className="grid-3" style={{ gap: '2px' }}>
-            {fieldNotes.map(note => (
-              <div
-                key={note.id}
-                id={note.id}
-                style={{
-                  backgroundColor: 'var(--color-white)',
-                  border: '1px solid var(--color-paper-border)',
-                  padding: '2rem',
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1rem',
-                  position: 'relative',
-                }}
-              >
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                  <span className="tag tag-accent">{note.tag}</span>
-                  {note.status === 'coming-soon' && (
-                    <span className="tag" style={{ fontSize: '0.65rem', color: 'var(--color-ink-faint)' }}>
-                      Coming soon
+            {fieldNotes.map(note => {
+              const isPublished = note.status === 'published' && note.slug
+              const CardWrapper = ({ children }: { children: React.ReactNode }) =>
+                isPublished ? (
+                  <Link
+                    to={`/field-notes/${note.slug}`}
+                    id={note.id}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '1rem',
+                      backgroundColor: 'var(--color-white)',
+                      border: '1px solid var(--color-paper-border)',
+                      padding: '2rem',
+                      textDecoration: 'none',
+                      transition: 'box-shadow 0.2s ease, border-color 0.2s ease',
+                    }}
+                    onMouseEnter={e => {
+                      (e.currentTarget as HTMLElement).style.boxShadow = '0 4px 12px rgba(0,0,0,0.10)'
+                      ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--color-ink-muted)'
+                    }}
+                    onMouseLeave={e => {
+                      (e.currentTarget as HTMLElement).style.boxShadow = 'none'
+                      ;(e.currentTarget as HTMLElement).style.borderColor = 'var(--color-paper-border)'
+                    }}
+                  >
+                    {children}
+                  </Link>
+                ) : (
+                  <div
+                    id={note.id}
+                    style={{
+                      display: 'flex',
+                      flexDirection: 'column',
+                      gap: '1rem',
+                      backgroundColor: 'var(--color-white)',
+                      border: '1px solid var(--color-paper-border)',
+                      padding: '2rem',
+                      opacity: 0.75,
+                    }}
+                  >
+                    {children}
+                  </div>
+                )
+
+              return (
+                <CardWrapper key={note.id}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                    <span className="tag tag-accent">{note.tag}</span>
+                    {note.status === 'coming-soon' ? (
+                      <span className="tag" style={{ fontSize: '0.65rem', color: 'var(--color-ink-faint)' }}>
+                        Coming soon
+                      </span>
+                    ) : note.date ? (
+                      <span style={{
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: '0.68rem',
+                        color: 'var(--color-ink-faint)',
+                        letterSpacing: '0.04em',
+                      }}>
+                        {note.date}
+                      </span>
+                    ) : null}
+                  </div>
+
+                  <h2 style={{
+                    fontSize: '1.05rem',
+                    fontWeight: 600,
+                    lineHeight: 1.4,
+                    color: isPublished ? 'var(--color-ink)' : 'var(--color-ink-muted)',
+                    margin: 0,
+                  }}>
+                    {note.title}
+                  </h2>
+
+                  <p style={{
+                    fontSize: '0.9rem',
+                    lineHeight: 1.7,
+                    color: 'var(--color-ink-faint)',
+                    fontStyle: isPublished ? 'normal' : 'italic',
+                    flex: 1,
+                    margin: 0,
+                  }}>
+                    {note.excerpt}
+                  </p>
+
+                  {isPublished && (
+                    <span style={{
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: '0.72rem',
+                      letterSpacing: '0.04em',
+                      color: 'var(--color-accent-mid)',
+                      textTransform: 'uppercase',
+                    }}>
+                      Read →
                     </span>
                   )}
-                </div>
-
-                <h3 style={{
-                  fontSize: '1.05rem',
-                  fontWeight: 600,
-                  lineHeight: 1.4,
-                  color: 'var(--color-ink)',
-                }}>
-                  {note.title}
-                </h3>
-
-                <p style={{
-                  fontSize: '0.9rem',
-                  lineHeight: 1.7,
-                  color: 'var(--color-ink-faint)',
-                  fontStyle: 'italic',
-                  flex: 1,
-                }}>
-                  {note.excerpt}
-                </p>
-              </div>
-            ))}
+                </CardWrapper>
+              )
+            })}
           </div>
         </div>
       </section>
 
       <hr className="divider" />
 
-      {/* ── Stay updated ── */}
+      {/* ── Bottom CTA ── */}
       <section id="field-notes-subscribe" className="section-lg" style={{ backgroundColor: 'var(--color-paper-warm)' }}>
         <div className="container-narrow">
           <h2 style={{ marginBottom: '1.25rem', maxWidth: '500px' }}>

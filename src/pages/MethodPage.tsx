@@ -41,8 +41,8 @@ const moves = [
 
 export default function MethodPage() {
   usePageMeta({
-    title: 'The Five Moves — Workflow-First Method',
-    description: 'The Five Moves is a framework for observing, mapping, and designing workflow before AI or automation is introduced. Before the tool, the workflow.',
+    title: 'The Five Moves | Make Work Flow™',
+    description: 'A practical framework for observing, mapping, and redesigning workflow before introducing AI or automation.',
     canonicalPath: '/method',
   })
   return (

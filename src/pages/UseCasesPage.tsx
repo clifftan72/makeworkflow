@@ -54,8 +54,8 @@ const useCases = [
 
 export default function UseCasesPage() {
   usePageMeta({
-    title: 'Workflow Use Cases — Common Patterns Before Automation',
-    description: 'Workflow patterns across SME operations — invoice chasing, customer triage, meeting prep, reporting, and more. How work breaks and what thinking is needed before tools.',
+    title: 'Workflow Use Cases | Make Work Flow™',
+    description: 'Common operational patterns where workflow clarity matters before AI, automation, or more tools are added.',
     canonicalPath: '/use-cases',
   })
   return (

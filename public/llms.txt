@@ -1,0 +1,87 @@
+# Make Work Flow™
+
+Make Work Flow™ is a workflow-first methodology for thinking about AI, automation, and operational clarity.
+
+The central principle is:
+
+Before automation, understand the work.
+Before agents, design the workflow.
+Before scaling, protect the human decision.
+
+Make Work Flow™ is the methodology and field-notes site.
+Harvest Point Consulting is the consulting practice that helps organisations apply the methodology.
+
+## Core pages
+
+- https://www.makeworkflow.dev/
+  Overview of the methodology and core principles. Explains the workflow-first approach and the three founding principles.
+
+- https://www.makeworkflow.dev/method
+  The Five Moves framework for understanding work before automation. Each move has a key question and a warning about what not to automate yet.
+
+- https://www.makeworkflow.dev/use-cases
+  Common workflow patterns across SME operations where clarity is needed before AI or automation. Includes invoice chasing, customer triage, meeting preparation, operations reporting, admin handoffs, and tenancy handoffs.
+
+- https://www.makeworkflow.dev/field-notes
+  Short observations on workflow friction, handoffs, AI and agents, human review, tool sprawl, and decision bottlenecks. Grounded in operational practice.
+
+- https://www.makeworkflow.dev/resources
+  Lightweight public resources for workflow thinking: checklists, canvases, and reflection prompts.
+
+- https://www.makeworkflow.dev/work-with-me
+  Explains how the Make Work Flow™ methodology is applied in practice through Harvest Point Consulting.
+
+- https://www.makeworkflow.dev/about
+  Background on Make Work Flow™ and its relationship with Harvest Point Consulting.
+
+## Field Notes
+
+- https://www.makeworkflow.dev/field-notes/handoff-breaks
+  Why the handoff is usually where work breaks. Explains how information asymmetry and unclear ownership at transfer points cause most workflow failures.
+
+- https://www.makeworkflow.dev/field-notes/task-vs-decision
+  The difference between automating a task and automating a decision. Tasks have defined inputs and outputs. Decisions require context, judgement, and accountability.
+
+- https://www.makeworkflow.dev/field-notes/human-in-loop
+  When to keep a human in the loop, and when automation earns trust. Human review is not always valuable — understanding what it adds is the key question.
+
+- https://www.makeworkflow.dev/field-notes/tool-sprawl
+  More tools, more friction. The paradox of the modern SME stack — each new tool creates a new handoff.
+
+- https://www.makeworkflow.dev/field-notes/workflow-memory
+  The hidden cost of workflows that live in someone's head. When a process depends on one person's knowledge, it works until that person is absent.
+
+## The Five Moves
+
+The Five Moves is the core framework published on this site:
+
+1. Observe the work — where does the work actually start and end?
+2. Map the flow — where does information move between people, tools, and decisions?
+3. Find the friction — where does work slow down, repeat, disappear, or depend on memory?
+4. Redesign the handoff — what should be clarified before any automation is added?
+5. Add automation carefully — what can be supported safely without removing human judgement?
+
+## Positioning
+
+Make Work Flow™ is not a software product.
+It is not an AI tool or AI platform.
+It is not a consulting company.
+It is not a SaaS product.
+
+It is a public methodology for understanding how work moves before adding automation or AI.
+
+The site is intended to be read by operators, managers, and business owners who are evaluating AI and automation for their organisations.
+
+## Key terminology
+
+- Workflow-first: the practice of mapping and understanding how work moves before selecting tools or building automation
+- The Five Moves: the five-step thinking framework at the core of the methodology
+- Human decision protected: the principle that automation should support, not replace, human judgement on decisions requiring context and accountability
+- Friction: points in a workflow where information disappears, decisions stall, or effort repeats unnecessarily
+- Handoff: the point where responsibility for a task, decision, or piece of information transfers from one person, team, or system to another
+
+## Commercial relationship
+
+Make Work Flow™ is a methodology publication by Harvest Point Consulting.
+For consulting and implementation support, visit:
+https://www.harvestpointconsulting.com

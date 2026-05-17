@@ -2,8 +2,8 @@ import { usePageMeta } from '../hooks/usePageMeta'
 
 export default function WorkWithMePage() {
   usePageMeta({
-    title: 'Work With Me — Apply Make Work Flow™ in Your Business',
-    description: 'Make Work Flow™ is the methodology. Harvest Point Consulting is where it is applied. If you want help with workflow clarity and operational AI, start here.',
+    title: 'Work with Harvest Point Consulting | Make Work Flow™',
+    description: 'Apply the Make Work Flow™ methodology inside your business through Harvest Point Consulting.',
     canonicalPath: '/work-with-me',
   })
   return (
